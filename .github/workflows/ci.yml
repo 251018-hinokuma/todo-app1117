@@ -53,5 +53,12 @@ jobs:
         run: npm run build
         env:
           NEXT_PUBLIC_APP_NAME: ${{ vars.APP_NAME }}
+      - name: ビルド日時を決める
+        run: echo "NEXT_PUBLIC_BUILD_TIME=$(TZ=Asia/Tokyo date '+%Y-%m-%d %H:%M')" >> "$GITHUB_ENV"
+      - name: Build
+        run: npm run build
+        env:
+          NEXT_PUBLIC_APP_NAME: ${{ vars.APP_NAME }}
+
       
 
